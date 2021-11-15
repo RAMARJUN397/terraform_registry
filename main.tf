@@ -7,9 +7,12 @@ provider "aws" {
 }
 
 
-module "simple" {
-  source = "./terraform-aws-rg"
-  rg_name = "Bengaluru"
-  rg_location = "ap-south-1"
-  rg_tags = { Environment = "Demo"}
+resource "aws_s3_bucket" "terraformsimplestorage" {
+  bucket = "terraformsimplestoragebucket"
+  acl    = "private"
+
+  tags = {
+    Name        = "terraformsimplestoragebucket"
+    Environment = "Devops"
+  }
 }
