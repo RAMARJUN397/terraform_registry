@@ -5,14 +5,9 @@ provider "aws" {
   secret_key = "p/g8wtQeRO05Xo8UsQ+E8itACceJUpESqanolbrT"
 
 }
+resource "aws_instance" "ec2" {
+     ami = "ami-02d47a75bafe6e320"
+     instance_type = "t2.micro"
+ }
 
 
-resource "aws_s3_bucket" "terraformsimplestorage" {
-  bucket = "terraformsimplestoragebucket"
-  acl    = "private"
-
-  tags = {
-    Name        = "terraformsimplestoragebucket"
-    Environment = "Devops"
-  }
-}
